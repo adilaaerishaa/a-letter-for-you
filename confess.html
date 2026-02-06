@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌷</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #a1c4fd 0%, #fbc2eb 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+            color: #5a5a5a;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Cloud Background - BANYAK BANGET! */
+        .cloud {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.6;
+            z-index: 0;
+            filter: blur(0.5px);
+        }
+
+        .cloud:before, .cloud:after {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+
+        /* Awan 1-12 dengan berbagai ukuran dan posisi */
+        .cloud-1 {
+            width: 180px;
+            height: 60px;
+            top: 8%;
+            left: 2%;
+            animation: floatCloud 35s linear infinite;
+        }
+        .cloud-1:before { width: 70px; height: 70px; top: -30px; left: 25px; }
+        .cloud-1:after { width: 55px; height: 55px; top: -20px; right: 30px; }
+
+        .cloud-2 {
+            width: 220px;
+            height: 75px;
+            top: 15%;
+            right: 5%;
+            animation: floatCloud 40s linear infinite reverse;
+            opacity: 0.7;
+        }
+        .cloud-2:before { width: 85px; height: 85px; top: -35px; left: 30px; }
+        .cloud-2:after { width: 65px; height: 65px; top: -25px; right: 35px; }
+
+        .cloud-3 {
+            width: 150px;
+            height: 50px;
+            bottom: 30%;
+            left: 8%;
+            animation: floatCloud 45s linear infinite;
+            opacity: 0.5;
+        }
+        .cloud-3:before { width: 60px; height: 60px; top: -25px; left: 20px; }
+        .cloud-3:after { width: 50px; height: 50px; top: -18px; right: 25px; }
+
+        .cloud-4 {
+            width: 200px;
+            height: 65px;
+            bottom: 18%;
+            right: 7%;
+            animation: floatCloud 50s linear infinite reverse;
+            opacity: 0.65;
+        }
+        .cloud-4:before { width: 75px; height: 75px; top: -30px; left: 25px; }
+        .cloud-4:after { width: 60px; height: 60px; top: -22px; right: 30px; }
+
+        .cloud-5 {
+            width: 120px;
+            height: 40px;
+            top: 25%;
+            left: 15%;
+            animation: floatCloud 30s linear infinite;
+            opacity: 0.55;
+        }
+        .cloud-5:before { width: 50px; height: 50px; top: -20px; left: 15px; }
+        .cloud-5:after { width: 40px; height: 40px; top: -15px; right: 20px; }
+
+        .cloud-6 {
+            width: 170px;
+            height: 55px;
+            top: 40%;
+            right: 12%;
+            animation: floatCloud 38s linear infinite reverse;
+            opacity: 0.6;
+        }
+        .cloud-6:before { width: 65px; height: 65px; top: -25px; left: 22px; }
+        .cloud-6:after { width: 50px; height: 50px; top: -18px; right: 27px; }
+
+        .cloud-7 {
+            width: 140px;
+            height: 45px;
+            bottom: 45%;
+            left: 20%;
+            animation: floatCloud 42s linear infinite;
+            opacity: 0.5;
+        }
+        .cloud-7:before { width: 55px; height: 55px; top: -22px; left: 18px; }
+        .cloud-7:after { width: 45px; height: 45px; top: -16px; right: 22px; }
+
+        .cloud-8 {
+            width: 190px;
+            height: 62px;
+            bottom: 60%;
+            right: 18%;
+            animation: floatCloud 47s linear infinite reverse;
+            opacity: 0.7;
+        }
+        .cloud-8:before { width: 72px; height: 72px; top: -28px; left: 26px; }
+        .cloud-8:after { width: 58px; height: 58px; top: -21px; right: 32px; }
+
+        .cloud-9 {
+            width: 100px;
+            height: 35px;
+            top: 60%;
+            left: 5%;
+            animation: floatCloud 33s linear infinite;
+            opacity: 0.45;
+        }
+        .cloud-9:before { width: 45px; height: 45px; top: -18px; left: 12px; }
+        .cloud-9:after { width: 35px; height: 35px; top: -12px; right: 16px; }
+
+        .cloud-10 {
+            width: 160px;
+            height: 52px;
+            top: 70%;
+            right: 3%;
+            animation: floatCloud 44s linear infinite reverse;
+            opacity: 0.6;
+        }
+        .cloud-10:before { width: 62px; height: 62px; top: -24px; left: 20px; }
+        .cloud-10:after { width: 48px; height: 48px; top: -18px; right: 25px; }
+
+        .cloud-11 {
+            width: 130px;
+            height: 43px;
+            top: 5%;
+            left: 30%;
+            animation: floatCloud 36s linear infinite;
+            opacity: 0.55;
+        }
+        .cloud-11:before { width: 52px; height: 52px; top: -20px; left: 17px; }
+        .cloud-11:after { width: 42px; height: 42px; top: -15px; right: 21px; }
+
+        .cloud-12 {
+            width: 180px;
+            height: 58px;
+            bottom: 5%;
+            left: 40%;
+            animation: floatCloud 52s linear infinite reverse;
+            opacity: 0.65;
+        }
+        .cloud-12:before { width: 68px; height: 68px; top: -26px; left: 24px; }
+        .cloud-12:after { width: 54px; height: 54px; top: -19px; right: 28px; }
+
+        @keyframes floatCloud {
+            0% { transform: translateX(-200px); }
+            100% { transform: translateX(calc(100vw + 400px)); }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 750px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(15px);
+            border-radius: 28px;
+            padding: 45px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            z-index: 1;
+        }
+
+        /* Icons around box */
+        .icon-deco {
+            position: absolute;
+            font-size: 28px;
+            opacity: 0.8;
+            z-index: 2;
+            animation: float 4s ease-in-out infinite;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-deco:nth-child(1) { top: 10%; left: 3%; animation-delay: 0s; color: #ffb6c1; }
+        .icon-deco:nth-child(2) { top: 8%; right: 5%; animation-delay: 0.3s; color: #a1c4fd; }
+        .icon-deco:nth-child(3) { bottom: 30%; left: 4%; animation-delay: 0.6s; color: #ff9ec0; }
+        .icon-deco:nth-child(4) { bottom: 25%; right: 3%; animation-delay: 0.9s; color: #ffb347; }
+        .icon-deco:nth-child(5) { top: 50%; left: 2%; animation-delay: 1.2s; color: #c2a1fd; }
+        .icon-deco:nth-child(6) { top: 45%; right: 2%; animation-delay: 1.5s; color: #9ef7ff; }
+        .icon-deco:nth-child(7) { bottom: 45%; left: 8%; animation-delay: 1.8s; color: #ff9ec0; }
+        .icon-deco:nth-child(8) { bottom: 40%; right: 7%; animation-delay: 2.1s; color: #a1ffd4; }
+        .icon-deco:nth-child(9) { top: 20%; left: 20%; animation-delay: 2.4s; color: #ffd166; }
+        .icon-deco:nth-child(10) { top: 75%; right: 15%; animation-delay: 2.7s; color: #cdb4db; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(15deg); }
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #ff7bac;
+            margin-bottom: 12px;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.08);
+            position: relative;
+            display: inline-block;
+        }
+
+        h1:after {
+            content: "☁️";
+            position: absolute;
+            right: -45px;
+            top: 10px;
+            font-size: 2.5rem;
+            animation: spin 15s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #888;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        /* Confess Box */
+        .confess-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: inset 0 0 0 3px #ffe4f2, 0 20px 40px rgba(255, 200, 221, 0.3);
+            margin-bottom: 40px;
+            min-height: 280px;
+            border: 2px dashed #ffc2dd;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .confess-box:before {
+            content: "☁️";
+            position: absolute;
+            top: -18px;
+            left: 40px;
+            background: white;
+            padding: 0 15px;
+            color: #ff9ec0;
+            font-size: 1.8rem;
+            z-index: 2;
+        }
+
+        .confess-box:after {
+            content: "🌸";
+            position: absolute;
+            bottom: -15px;
+            right: 40px;
+            background: white;
+            padding: 0 12px;
+            color: #a1c4fd;
+            font-size: 1.6rem;
+            z-index: 2;
+        }
+
+        .confess-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
+            white-space: pre-line;
+            font-weight: 400;
+            padding: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Box inner decorations */
+        .box-icon {
+            position: absolute;
+            font-size: 22px;
+            opacity: 0.5;
+            z-index: 0;
+            animation: floatIcon 5s ease-in-out infinite alternate;
+        }
+        .box-icon:nth-child(1) { top: 25px; right: 35px; animation-delay: 0s; color: #ffb6c1; }
+        .box-icon:nth-child(2) { bottom: 30px; left: 30px; animation-delay: 0.5s; color: #a1c4fd; }
+        .box-icon:nth-child(3) { top: 60px; left: 25px; animation-delay: 1s; color: #ff9ec0; }
+        .box-icon:nth-child(4) { bottom: 50px; right: 45px; animation-delay: 1.5s; color: #ffb347; }
+        .box-icon:nth-child(5) { top: 120px; right: 60px; animation-delay: 2s; color: #c2a1fd; }
+        .box-icon:nth-child(6) { bottom: 100px; left: 50px; animation-delay: 2.5s; color: #9ef7ff; }
+
+        @keyframes floatIcon {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-15px) rotate(10deg); }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #999;
+            font-size: 1rem;
+            font-weight: 300;
+            border-top: 1px dashed #ddd;
+            padding-top: 25px;
+            position: relative;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: #ff7bac;
+            margin-top: 10px;
+            display: inline-block;
+            padding: 0 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+        }
+
+        /* Floating Button */
+        .send-btn {
+            display: block;
+            margin: 0 auto;
+            background: linear-gradient(to right, #8bb5ff, #ff9ec0);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.3rem;
+            border-radius: 60px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 12px 30px rgba(139, 181, 255, 0.6);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .send-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.8s;
+            z-index: -1;
+        }
+
+        .send-btn:hover {
+            transform: translateY(-6px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(139, 181, 255, 0.8);
+        }
+
+        .send-btn:hover:before {
+            left: 100%;
+        }
+
+        /* Responsive *//* ===== RESPONSIVE MOBILE ===== */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px !important;
+        max-width: 1100px !important;
+    }
+    
+    .confess-box {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+        padding: 20px !important;
+        min-height: 250px !important;
+        margin-bottom: 25px !important;
+    }
+    
+    .confess-text {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        padding: 10px !important;
+    }
+    
+    h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    h1:after {
+        right: -30px !important;
+        font-size: 1.5rem !important;
+    }
+    
+    .send-btn {
+        padding: 14px 35px !important;
+        font-size: 1rem !important;
+    }
+    
+    /* Kurangi jumlah awan di mobile biar tidak berat */
+    .cloud-5, .cloud-6, .cloud-7, .cloud-8, .cloud-9, .cloud-10, .cloud-11, .cloud-12 {
+        display: none;
+    }
+}
+        
+    </style>
+</head>
+<body>
+    <!-- Clouds Background - BANYAK BANGET! -->
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+    <div class="cloud cloud-4"></div>
+    <div class="cloud cloud-5"></div>
+    <div class="cloud cloud-6"></div>
+    <div class="cloud cloud-7"></div>
+    <div class="cloud cloud-8"></div>
+    <div class="cloud cloud-9"></div>
+    <div class="cloud cloud-10"></div>
+    <div class="cloud cloud-11"></div>
+    <div class="cloud cloud-12"></div>
+
+    <!-- Floating Icons -->
+    <div class="icon-deco">☁️</div>
+    <div class="icon-deco">🌸</div>
+    <div class="icon-deco">✨</div>
+    <div class="icon-deco">💖</div>
+    <div class="icon-deco">🌷</div>
+    <div class="icon-deco">🦋</div>
+    <div class="icon-deco">💌</div>
+    <div class="icon-deco">🌼</div>
+    <div class="icon-deco">🌟</div>
+    <div class="icon-deco">💕</div>
+
+    <div class="container">
+        <div class="header">
+            <h1>From A to A</h1>
+            <p class="subtitle">a sky full of love 🌤️ (Translate yaaa kalau kurang paham :b) </p>
+        </div>
+
+        <div class="confess-box">
+            <!-- Box inner icons -->
+            <div class="box-icon">☁️</div>
+            <div class="box-icon">🌸</div>
+            <div class="box-icon">✨</div>
+            <div class="box-icon">💖</div>
+            <div class="box-icon">🦋</div>
+            <div class="box-icon">🌟</div>
+            
+            <div class="confess-text" id="confessText">Hi Anggi!!
+
+So sorry kalo ini ganggu lo banget.. 
+
+Tapi gue ga bisa nutupin / hold back lagii after 7-9 yearssss :b 
+
+I like you, a lot. 
+Gue juga bingung kenapa rasanya konyol bgt, i didn't mean to like you when we're in SD. I just admire you. But for years, my feelings haven't changed. And I'm so so so confused. 
+
+Pasti u muak bgt krn Dinda keep  mentioning me to you, so sowrry for that. I just don't know how to explain my feelings for u.
+
+And recently, I heard that you just broke up with D. I was surprised.. since she has been always nagging 'bout you' and chasing you for a quite long time. And she managed to get you... I hoped you and she had a good time at that time, like.. "semoga langgeng" dan both of you can treat well satu sama lain. But apparently fate said otherwise. I'm sorry for bring this up but.. I feel like I won't be able to find another time to confess this. Your heart may not have recovered from D, but since u're single... 
+
+I just wanna let you know that I still like you, and it's like... everytime I'm in a relationship with anyone, everytime i know something about u, my heart suddenly ached. (Fak alay bgt tapi ini real n i don't know WHY)
+
+I never had any intention of chasing you, I always admired you from afar. Gue ga pernah mau confess 'cause gue selalu takut.. selalu takut sama reaksi lo. Dengan confessing ini semua.. gue juga ga maksa/nuntut jawaban apapun dari lo, gue cuma mau confess apa yang selama ini gue tahan. Gue cuma mau lo tau, itu aja, gak ada yang lain dan gak berharap apapun. Walaupun pasti sudaa ketebak dari dinda😭
+
+Tapi gue tau, u gak akan pernah bisa percaya 100% kalo cuma tau dari orang. 
+
+With this all.. thanks alot for read this confession. Once again thanks bgt.. gue confess bner bener penuh dengan rasa sincere (tulus), maafin juga yaa kalo selama ini ganggu lo banget banget banget. I know i'm not perfect, i'm not pretty n ugly as hell, gue banyaaaakk bgt kurangnya. Pasti ganggu lo banget kan?😼
+
+Hope you find your type secepatnya dan lebih lebih baikkk yeaaaa!! ^~^
+
+Thanxx n have a good day, XOXO 🤍. 
+—A
+
+            </div>
+        </div>
+
+        <button class="send-btn" onclick="sendLove()">
+            <i class="fas fa-cloud" style="margin-right: 12px;"></i>
+            Click ~
+            <i class="fas fa-heart" style="margin-left: 12px;"></i>
+        </button>
+
+        <div class="footer">
+            <p>Made almost 9 years of feelings</p>
+            <p class="signature">From A to A</p>
+        </div>
+    </div>
+
+    <script>
+        function sendLove() {
+            const btn = document.querySelector('.send-btn');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-cloud-rain"></i> 🌧️ Feelings are raining with love! <i class="fas fa-cloud-rain"></i>';
+            btn.style.background = 'linear-gradient(to right, #ffb347, #ff9ec0)';
+            btn.disabled = true;
+
+            // SUPER CONFETTI WITH CLOUDS
+            for (let i = 0; i < 60; i++) {
+                setTimeout(() => {
+                    createConfetti();
+                }, i * 60);
+            }
+
+            // Change all clouds color momentarily
+            const clouds = document.querySelectorAll('.cloud');
+            clouds.forEach(cloud => {
+                const originalColor = cloud.style.background;
+                cloud.style.background = '#ffd6e7';
+                cloud.style.transition = 'background 0.5s';
+                
+                setTimeout(() => {
+                    cloud.style.background = originalColor;
+                }, 1500);
+            });
+
+            // Background color pulse
+            document.body.style.background = 'linear-gradient(135deg, #c2e9fb 0%, #ffd6e7 100%)';
+            setTimeout(() => {
+                document.body.style.background = 'linear-gradient(135deg, #a1c4fd 0%, #fbc2eb 100%)';
+            }, 2000);
+
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = 'linear-gradient(to right, #8bb5ff, #ff9ec0)';
+                btn.disabled = false;
+            }, 4000);
+        }
+
+        function createConfetti() {
+            const icons = ['☁️', '🌸', '✨', '💖', '🌷', '🦋', '💌', '🌼', '🌟', '💕', '🌦️', '⛅'];
+            const confetti = document.createElement('div');
+            confetti.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+            confetti.style.position = 'fixed';
+            confetti.style.fontSize = Math.random() * 30 + 20 + 'px';
+            confetti.style.color = ['#ff9ec0', '#a1c4fd', '#ffd6e7', '#ffb347', '#c2a1fd', '#a1ffd4'][Math.floor(Math.random() * 6)];
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.top = '100vh';
+            confetti.style.opacity = '0.9';
+            confetti.style.pointerEvents = 'none';
+            confetti.style.zIndex = '9999';
+            confetti.style.textShadow = '2px 2px 4px rgba(0,0,0,0.1)';
+            confetti.style.filter = `blur(${Math.random() * 0.5}px)`;
+            document.body.appendChild(confetti);
+
+            const animation = confetti.animate([
+                { transform: 'translateY(0) rotate(0deg) scale(1)', opacity: 0.9 },
+                { transform: `translateY(-${window.innerHeight + 200}px) rotate(${Math.random() * 720 - 360}deg) scale(${0.5 + Math.random() * 0.5})`, opacity: 0 }
+            ], {
+                duration: 2000 + Math.random() * 1500,
+                easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
+            });
+
+            animation.onfinish = () => confetti.remove();
+        }
+
+        // Allow text editing
+        document.getElementById('confessText').addEventListener('click', function() {
+            if (confirm('Mau edit teks confess langsung di sini?')) {
+                const currentText = this.innerText;
+                const newText = prompt('Edit teks confess kamu:', currentText);
+                if (newText !== null && newText.trim() !== '') {
+                    this.innerText = newText;
+                }
+            }
+        });
+
+        // Add random movement to some clouds on hover
+        const clouds = document.querySelectorAll('.cloud');
+        clouds.forEach(cloud => {
+            cloud.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+                this.style.transition = 'transform 0.3s';
+            });
+            
+            cloud.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
